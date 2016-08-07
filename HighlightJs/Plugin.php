@@ -119,7 +119,7 @@ EOF;
     {
         $text = empty($lastResult) ? $text : $lastResult;
         $text = preg_replace_callback(
-            '/<code class="(lang|language)-(.*?)">/i',
+            ''/<pre><code class="(lang|language)-(.*?)">/i'',
             function ($matches) {
                 $lang = strtolower($matches[2]);
                 $finalLang = $lang;
@@ -132,7 +132,7 @@ EOF;
                     }
                 }
 
-                return '<code class="language-'.$finalLang.'">';
+                return '<pre alt="'.ucfirst($finalLang).'"><code class="language-'.$finalLang.'">';
             },
             $text
             );
